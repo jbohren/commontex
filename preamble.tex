@@ -2,6 +2,8 @@
 % use this to create PDF/A that supports PDF 1.6 %
 % PDF/A is required by JHU ETD system
 \usepackage[a-3b]{pdfx}
+%\pdfxSetRGBcolorProfileDir{commontex/}
+\setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
 
 % layout %
 \showboxdepth=5
@@ -19,7 +21,7 @@
 \usepackage{verbatim}
 
 % citations %
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
 
 % references %
 \usepackage{hyperref}
