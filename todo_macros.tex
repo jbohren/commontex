@@ -1,0 +1,16 @@
+
+% Inline boxed "todo" with short description and long explanation
+%   usage: \todoin[time]{short}{long}
+\newcommand{\todoin}[3][]
+{\addtocounter{todoListItems}{1}\medskip\todo[inline, caption={\protect\hypertarget{todo\thetodoListItems}{\thesection}, #2}]{%
+\begin{minipage}{\textwidth-4pt}\hyperlink{todo\thetodoListItems}{\textbf{TODO\ifthenelse{\equal{#1}{}}{}{~[#1]}: #2}}\\\ssp{}#3\end{minipage}}}
+
+% Margin "todo" for adding a citation
+%   usage: \todocite{}
+\newcommand{\todocite}
+{[{\color{red}??}\addtocounter{todoListItems}{1}\todo[color=white!10,linecolor=red,bordercolor=red,caption={\protect\hypertarget{todo\thetodoListItems}{\thesection}, citation needed}]{\hyperlink{todo\thetodoListItems}{cite}}]}
+
+% Margin "todo" for adding a reference to something
+%   usage: \todoref{}
+\newcommand{\todoref}
+{{\color{red}??}\addtocounter{todoListItems}{1}\todo[color=white!10,linecolor=red,bordercolor=red,caption={\protect\hypertarget{todo\thetodoListItems}{\thesection}, reference needed}]{\hyperlink{todo\thetodoListItems}{ref}}}

@@ -1,0 +1,98 @@
+
+% use this to create PDF/A that supports PDF 1.6 %
+% PDF/A is required by JHU ETD system
+\usepackage[a-3b]{pdfx}
+
+% layout %
+\showboxdepth=5
+\showboxbreadth=5
+\usepackage{fancyhdr}
+
+% fonts %
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} \normalfont
+\DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
+\usepackage{amsmath,amsfonts}
+
+% logistics %
+\usepackage{import}
+\usepackage{verbatim}
+
+% citations %
+\usepackage[numbers]{natbib}
+
+% references %
+\usepackage{hyperref}
+
+% graphics packages %
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{wrapfig} % wrapfig is fragile: use sparingly
+\usepackage{float}
+\usepackage{framed}
+\usepackage[font=singlespacing, labelfont=bf]{caption}
+\usepackage{subcaption}
+
+% typesetting
+\usepackage{upgreek}
+\usepackage{setspace}
+\usepackage{csquotes}
+\usepackage{mathtools}
+\usepackage{hyphenat}
+
+% tables %
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabulary}
+
+% algorithms %
+\usepackage[vlined]{algorithm2e}
+
+% lists %
+\usepackage{enumitem}
+\newlist{inlinelist}{enumerate*}{1}
+\setlist*[inlinelist,1]{%
+  label=(\arabic*),
+}
+
+% colors %
+\usepackage{xcolor}
+
+% glossary % 
+\usepackage[acronym, toc]{glossaries-prefix}
+\renewcommand{\glossarypreamble}{\ssp{}}
+\makeglossaries
+
+% todos %
+\usepackage[backgroundcolor=white, bordercolor=red]{todonotes}
+\reversemarginpar
+\setlength{\marginparwidth}{2cm}
+\usepackage{silence}
+\WarningFilter*{latex}{Marginpar on page \thepage\space moved}
+\newcounter{todoListItems}
+\input{todo_macros.tex}
+%   usage: \todoin[time]{short}{long}
+%   usage: \todocite{}
+%   usage: \todoref{}
+
+% Define the header/footer style
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\lhead{\leftmark}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{% Redefine ``plain'' style for chapter boundaries
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+% indicies of terms
+\input{terms_acronyms}
+\input{terms_glossary}
+
