@@ -3,7 +3,7 @@
 %   usage: \todoin[time]{short}{long}
 \newcommand{\todoin}[3][]
 {\addtocounter{todoListItems}{1}\medskip\todo[inline, caption={\protect\hypertarget{todo\thetodoListItems}{\thesection}, #2}]{%
-\begin{minipage}{\textwidth-4pt}\hyperlink{todo\thetodoListItems}{\textbf{TODO\ifthenelse{\equal{#1}{}}{}{~[#1]}: #2}}\\\ssp{}#3\end{minipage}}}
+\begin{minipage}{\textwidth-4pt}\hyperlink{todo\thetodoListItems}{\textbf{TODO\ifthenelse{\equal{#1}{}}{}{~[#1]}: #2}}\\#3\end{minipage}}}
 
 % Margin "todo" for adding a citation
 %   usage: \todocite{}

@@ -1,30 +1,36 @@
 
+% silence warnings %
+\usepackage{silence}
+\WarningFilter*{latex}{Marginpar on page \thepage\space moved}
+\WarningFilter*{caption}{Unsupported document class (or package) detected}
+\WarningFilter{glossaries}{No \printglossary or \printglossaries found}
+
+% logistics %
+\usepackage{verbatim}
+
 % use this to create PDF/A that supports PDF 1.6 %
 % PDF/A is required by JHU ETD system
 \usepackage[a-3b]{pdfx}
 %\pdfxSetRGBcolorProfileDir{commontex/}
 \setRGBcolorprofile{sRGB_IEC61966-2-1_black_scaled.icc}{sRGB_IEC61966-2-1_black_scaled}{sRGB IEC61966 v2.1 with black scaling}{http://www.color.org}
 
-% layout %
-\showboxdepth=5
-\showboxbreadth=5
-\usepackage{fancyhdr}
-
 % fonts %
+\begin{comment}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern} \normalfont
 \DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
 \usepackage{amsmath,amsfonts}
-
-% logistics %
-\usepackage{import}
-\usepackage{verbatim}
+\end{comment}
 
 % citations %
 %\usepackage[numbers]{natbib}
 
 % references %
 \usepackage{hyperref}
+
+% captions %
+\usepackage[font=footnotesize]{caption}
+\usepackage{subcaption}
 
 % graphics packages %
 \usepackage{graphicx}
@@ -33,8 +39,6 @@
 \usepackage{wrapfig} % wrapfig is fragile: use sparingly
 \usepackage{float}
 \usepackage{framed}
-\usepackage[font=singlespacing, labelfont=bf]{caption}
-\usepackage{subcaption}
 
 % typesetting
 \usepackage{upgreek}
@@ -54,6 +58,7 @@
 \usepackage[vlined]{algorithm2e}
 
 % lists %
+\let\labelindent\relax
 \usepackage{enumitem}
 \newlist{inlinelist}{enumerate*}{1}
 \setlist*[inlinelist,1]{%
@@ -65,34 +70,18 @@
 
 % glossary % 
 \usepackage[acronym, toc]{glossaries-prefix}
-\renewcommand{\glossarypreamble}{\ssp{}}
+\renewcommand{\glossarypreamble}{}
 \makeglossaries
 
 % todos %
 \usepackage[backgroundcolor=white, bordercolor=red]{todonotes}
 \reversemarginpar
-\setlength{\marginparwidth}{2cm}
-\usepackage{silence}
-\WarningFilter*{latex}{Marginpar on page \thepage\space moved}
+\setlength{\marginparwidth}{1.2cm}
 \newcounter{todoListItems}
 \input{todo_macros.tex}
 %   usage: \todoin[time]{short}{long}
 %   usage: \todocite{}
 %   usage: \todoref{}
-
-% Define the header/footer style
-\pagestyle{fancy}
-\fancyhf{}
-\setlength{\headheight}{15pt}
-\lhead{\leftmark}
-\cfoot{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\fancypagestyle{plain}{% Redefine ``plain'' style for chapter boundaries
-\fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
-\def\newblock{\hskip .11em plus .33em minus .07em}
 
 % indicies of terms
 \input{terms_acronyms}
